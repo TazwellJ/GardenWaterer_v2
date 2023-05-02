@@ -26,5 +26,5 @@ For each plant:
   3. 5V DC pump (https://www.amazon.com/dp/B07BHD6KXS)
 
 Notes:  
-  1. I DO stongly recommend that you buy the moisture sensors linked above.  They're a bit on the expensive side but I tried the cheap ones and they're just more trouble than they're worth.
+  1. I DO stongly recommend that you buy the moisture sensors linked above.  They're a bit on the expensive side but I tried the cheap ones and they're just more trouble than they're worth.  If you plan to expand the project with more plants, you should go ahead and order the sensors in advance as there is a 3-4 week lead time.
   2. The motorized ball valve was more expensive than I'd hoped as well.  I first tried a solenoid and then a pump.  There is a reason that this project is labelled v2.
