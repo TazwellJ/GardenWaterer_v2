@@ -24,6 +24,11 @@ For each plant:
   1. I2C moisture sensors https://www.tindie.com/products/miceuz/i2c-soil-moisture-sensor/
   2. 5-gallon bucket
   3. 5V DC pump (https://www.amazon.com/dp/B07BHD6KXS)
+  
+Optional:
+  I used this breakout board during prototyping:  https://www.aliexpress.us/item/3256804722984010.html  (the sensor board in the middle)
+  ![image](https://user-images.githubusercontent.com/72585986/235741808-6da22ea0-a25a-4193-846f-0a3f7411a3d4.png)
+
 
 Notes:  
   1. I DO stongly recommend that you buy the moisture sensors linked above.  They're a bit on the expensive side but I tried the cheap ones and they're just more trouble than they're worth.  If you plan to expand the project with more plants, you should go ahead and order the sensors in advance as there is a 3-4 week lead time.
