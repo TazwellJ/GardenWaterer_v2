@@ -27,9 +27,7 @@ For each plant:
   
 Optional:
   I used this breakout board during prototyping:  https://www.aliexpress.us/item/3256804722984010.html  (the sensor board in the middle)
-  ![image](https://user-images.githubusercontent.com/72585986/235741808-6da22ea0-a25a-4193-846f-0a3f7411a3d4.png)
-
-
+  
 Notes:  
   1. I DO stongly recommend that you buy the moisture sensors linked above.  They're a bit on the expensive side but I tried the cheap ones and they're just more trouble than they're worth.  If you plan to expand the project with more plants, you should go ahead and order the sensors in advance as there is a 3-4 week lead time.
   2. The motorized ball valve was more expensive than I'd hoped as well.  I first tried a solenoid (not enough pressure to actuate it) and then a pump (too much pressure and water just kept flowing through even when off).  The motorized valve will open when energized and will automatically close if power is lost so you don't cause a flood.  There is a reason that this project is labelled v2.
