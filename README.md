@@ -3,3 +3,4 @@ Contains code for an automated container garden watering system using a Raspberr
 
 The sensors and relay board use the I2C protocol to communicate so you could expand this up to 100+ devices with appropriate power supply, relay boards and I2C multiplexors.
 
+All materials can be found in the BOM here:  https://github.com/tazwellj/Pico_GardenWaterer_v2/BOM.txt
