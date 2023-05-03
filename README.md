@@ -26,7 +26,7 @@ For each plant:
   3. 5V DC pump (https://www.amazon.com/dp/B07BHD6KXS)
   
 Optional:
-  I used this breakout board during prototyping:  https://www.aliexpress.us/item/3256804722984010.html  (the sensor board in the middle)
+  I used this breakout board during prototyping:  https://www.aliexpress.us/item/3256804722984010.html  (the sensor board in the middle) because it had multiple     built-in pins for both 3.3V and 5V devices.  Yet again, long lead time as it comes from China.
   
 Notes:  
   1. I DO stongly recommend that you buy the moisture sensors linked above.  They're a bit on the expensive side but I tried the cheap ones and they're just more trouble than they're worth.  If you plan to expand the project with more plants, you should go ahead and order the sensors in advance as there is a 3-4 week lead time.
