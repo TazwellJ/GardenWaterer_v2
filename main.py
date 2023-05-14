@@ -1,7 +1,7 @@
 from machine import Pin,SoftI2C
 import utime
 import urequests
-import wifi
+from wifi import WiFi
 import _thread
 import chirp
 from secrets import secrets
