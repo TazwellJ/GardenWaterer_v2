@@ -112,14 +112,14 @@ def checkReservoirLevel():
         # both sensors must read the same value to result in a state change of the pump
         v1 = WLS1.value()
         v2 = WLS2.value()
-        if v1 and v2: # both sensors down - reservoir is empty
-            ch_mode(relAddr,presChan,1)
+        if v2 == 0 and pres == 0: # lower down and pump off - reservoir is empty
+            ch_mode(relAddr,presChan,1) # turn on pump
             pres = 1
-        elif not v1 and not v2: # both sensors up - reservoir is full
-            ch_mode(relAddr,presChan,0)
+        elif v1 == 1 and pres == 1: # upper up and pump on - reservoir is full
+            ch_mode(relAddr,presChan,0) # turn off pump
             pres = 0
         for x in range (0,14): # This loop causes the thread to wait for 15 minutes between polls
-            utime.sleep(900)
+            utime.sleep(60)
 
 # Connect to wifi
 w = WiFi(ssid, password)
