@@ -14,6 +14,7 @@ Parts needed:
   10. Container/case for electronics (https://www.amazon.com/dp/B0000B12YQ)
   11. 5V power supply (https://www.amazon.com/dp/B0833WXT7F)
   12. Various wire, heat shrink tubing, tools and other accessories for connecting everything
+  13. 12v power supply
   
 For each plant:
   1. I2C moisture sensors https://www.tindie.com/products/miceuz/i2c-soil-moisture-sensor/
