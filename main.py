@@ -5,7 +5,10 @@ from wifi import WiFi
 import _thread
 import chirp
 from secrets import secrets
+import os
+import logger
 
+os.dupterm(logger.logToFile())
 # GPIO pinout
 # 0 - I2C SDA Pin
 # 1 - I2C SCL Pin
@@ -111,15 +114,17 @@ def checkReservoirLevel():
         # check water supply level in reservoir and trigger pump to start when low and stop when full
         # both sensors must read the same value to result in a state change of the pump
         v1 = WLS1.value()
+        print(v1)
         v2 = WLS2.value()
-        if v2 == 0 and pres == 0: # lower down and pump off - reservoir is empty
-            ch_mode(relAddr,presChan,1) # turn on pump
+        print(v2)
+        if v1 and v2: # both sensors down - reservoir is empty
+            ch_mode(relAddr,presChan,1)
             pres = 1
-        elif v1 == 1 and pres == 1: # upper up and pump on - reservoir is full
-            ch_mode(relAddr,presChan,0) # turn off pump
+        elif not v1 and not v2: # both sensors up - reservoir is full
+            ch_mode(relAddr,presChan,0)
             pres = 0
         for x in range (0,14): # This loop causes the thread to wait for 15 minutes between polls
-            utime.sleep(60)
+            utime.sleep(900)
 
 # Connect to wifi
 w = WiFi(ssid, password)
@@ -135,9 +140,9 @@ else:
 while True:
     if numPlants >= 1:
         # read moisture sensor 1 and activate/deactivate pump relay when necessary
-        last = mst1.moist_percent
-        while mst1.busy:
-            pass
+        #last = mst1.moist_percent
+        #while mst1.busy():
+        #    pass
         m1 = LowPassFilter(mst1prev, mst1.moist_percent)
         if m1 < 40:
             ch_mode(relAddr,p1chan,1)
@@ -151,9 +156,9 @@ while True:
         
     if numPlants >= 2:
         # read moisture sensor 2 and activate/deactivate pump relay when necessary
-        last = mst2.moist_percent
-        while mst2.busy:
-            pass
+        #last = mst2.moist_percent
+        #while mst2.busy:
+        #    pass
         m2 = LowPassFilter(mst2prev, mst2.moist_percent)
         if m2 < 40:
             ch_mode(relAddr,p2chan,1)
@@ -167,9 +172,9 @@ while True:
         
     if numPlants == 3:
         # read moisture sensor 3 and activate/deactivate pump relay when necessary
-        last = mst3.moist_percent
-        while mst3.busy:
-            pass
+        #last = mst3.moist_percent
+        #while mst3.busy:
+        #    pass
         m3 = LowPassFilter(mst3prev, mst3.moist_percent)
         if m3 < 40:
             ch_mode(relAddr,p3chan,1)
@@ -185,9 +190,12 @@ while True:
         print("Reconnecting to wifi")
         w.connect_wifi()
 
-    # upload data to ThingSpeak channel
-    sensor_data = {'field1':m1, 'field2':m2, 'field3':m3, 'field4':p1, 'field5':p2, 'field6':p3, 'field7':pres}
-    request = urequests.post( 'http://api.thingspeak.com/update?api_key=' + THINGSPEAK_WRITE_API_KEY, json = sensor_data, headers = HTTP_HEADERS )  
-    request.close()
-        
+    try:
+        # upload data to ThingSpeak channel
+        sensor_data = {'field1':m1, 'field2':m2, 'field3':m3, 'field4':p1, 'field5':p2, 'field6':p3, 'field7':pres}
+        request = urequests.post( 'http://api.thingspeak.com/update?api_key=' + THINGSPEAK_WRITE_API_KEY, json = sensor_data, headers = HTTP_HEADERS )  
+        request.close()
+    except:
+        pass
+    
     utime.sleep(300)
